@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// Fonte de dados: conexão com o banco de dados
+datasource db {
+  provider = "postgresql" // Tipo do banco
+  url      = env("DATABASE_URL") // URL do banco no arquivo .env
+}
+
+// Gerador do cliente Prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Modelo de Empresa
+model Company {
+  id        Int       @id @default(autoincrement())
+  name      String    @unique
+  email     String    @unique
+  phone     String?
+  createdAt DateTime  @default(now())
+  services  Service[] // Relacionamento: Uma empresa tem vários serviços
+}
+
+// Modelo de Serviços
+model Service {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String
+  price       Float
+  companyId   Int       // Chave estrangeira para Company
+  company     Company   @relation(fields: [companyId], references: [id])
+  appointments Appointment[] // Relacionamento com agendamentos
+  createdAt   DateTime  @default(now())
+}
+
+// Modelo de Usuários
+model User {
+  id        Int          @id @default(autoincrement())
+  name      String
+  email     String       @unique
+  password  String
+  createdAt DateTime     @default(now())
+  appointments Appointment[] // Relacionamento com agendamentos
+}
+
+// Modelo de Agendamentos
+model Appointment {
+  id        Int       @id @default(autoincrement())
+  date      DateTime  // Data e horário do agendamento
+  status    String    // PENDING, CONFIRMED, CANCELLED
+  userId    Int       // Chave estrangeira para User
+  user      User      @relation(fields: [userId], references: [id])
+  serviceId Int       // Chave estrangeira para Service
+  service   Service   @relation(fields: [serviceId], references: [id])
+  createdAt DateTime  @default(now())
+}
