@@ -1,10 +1,10 @@
 import { Card, CardContent } from "./ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
 
-const Best = () => {
+const Popular = () => {
     return ( 
         <div className="p-4">
-        <><h1 className="text-xl font-bold">Melhores avaliados</h1>
+        <><h1 className="text-xl font-bold">Populares</h1>
         <Carousel className="max-w-xs p-4">
             <CarouselContent>
                 {Array.from({ length: 6 }).map((_, index) => (
@@ -26,4 +26,4 @@ const Best = () => {
      );
 }
  
-export default Best;
+export default Popular;
