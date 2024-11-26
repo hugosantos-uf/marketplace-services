@@ -28,7 +28,7 @@ const Popular = () => {
                 Endereço do Item {index + 1}, Rua XYZ, Cidade
               </p>
               {/* Botão */}
-              <Button>
+              <Button variant="bord">
                 Ver mais
               </Button>
             </CardContent>

@@ -17,15 +17,15 @@ const Search = () => {
                       placeholder="O que você procura?" 
                       className="bg-transparent text-white placeholder-white border-white focus:ring-0 focus:border-white"
                   />
-                  <Button><SearchIcon /></Button>
+                  <Button variant="transparent"><SearchIcon /></Button>
               </div>
 
               {/* Botões para categorias */}
               <div className="w-1/2 flex gap-3 items-center justify-center">
-                  <Button variant="outline">Barbearias</Button>
-                  <Button variant="outline">Eletricistas</Button>
-                  <Button variant="outline">Jardinagem</Button>
-                  <Button variant="outline">Serviços Domésticos</Button>
+                  <Button variant="transparent">Barbearias</Button>
+                  <Button variant="transparent">Eletricistas</Button>
+                  <Button variant="transparent">Jardinagem</Button>
+                  <Button variant="transparent">Serviços Domésticos</Button>
               </div>
           </div>
       </section>
