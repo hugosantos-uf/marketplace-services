@@ -1,27 +1,47 @@
+import Image from "next/image";
 import { Card, CardContent } from "./ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
+import { Button } from "./ui/button";
 
 const Best = () => {
     return ( 
-        <div className="p-4">
+        <div className="p-10 flex flex-col items-center">
         <><h1 className="text-xl font-bold">Melhores avaliados</h1>
-        <Carousel className="max-w-xs p-4">
-            <CarouselContent>
-                {Array.from({ length: 6 }).map((_, index) => (
-                    <CarouselItem key={index}>
-                        <div className="p-1">
-                            <Card>
-                                <CardContent className="flex aspect-square items-center justify-center p-6">
-                                    <span className="text-4xl font-semibold">{index + 1}</span>
-                                </CardContent>
-                            </Card>
-                        </div>
-                    </CarouselItem>
-                ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-        </Carousel></>
+        <Carousel className="w-5/6 p-4">
+  <CarouselContent>
+    {Array.from({ length: 6 }).map((_, index) => (
+      <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/5">
+        <div className="p-1">
+          <Card>
+            <CardContent className="flex flex-col items-start p-4 space-y-4">
+              {/* Imagem */}
+              <div className="w-full">
+                <img
+                  src={`/image-${index + 1}.jpg`} // Substitua pelo caminho da imagem real
+                  alt={`Image ${index + 1}`}
+                  className="w-full h-40 object-cover rounded-md"
+                />
+              </div>
+              {/* Título */}
+              <h2 className="text-lg font-semibold">Título {index + 1}</h2>
+              {/* Endereço */}
+              <p className="text-sm text-gray-500">
+                Endereço do Item {index + 1}, Rua XYZ, Cidade
+              </p>
+              {/* Botão */}
+              <Button>
+                Ver mais
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </CarouselItem>
+    ))}
+  </CarouselContent>
+  <CarouselPrevious />
+  <CarouselNext />
+</Carousel>
+</>
         </div>
      );
 }
