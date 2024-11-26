@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "./ui/button";
 
 const Footer = () => {
   return (
@@ -6,29 +7,14 @@ const Footer = () => {
       <div className="container mx-auto flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
         {/* Logo ou Título */}
         <div className="text-xl font-semibold">
-          <span className="text-teal-400">My</span>Website
+          <span className="text-teal-400">My</span>Service
         </div>
 
         {/* Links de Navegação */}
         <nav className="flex space-x-4">
-          <a
-            href="#"
-            className="hover:text-teal-400 transition duration-200"
-          >
-            Sobre
-          </a>
-          <a
-            href="#"
-            className="hover:text-teal-400 transition duration-200"
-          >
-            Serviços
-          </a>
-          <a
-            href="#"
-            className="hover:text-teal-400 transition duration-200"
-          >
-            Contato
-          </a>
+          <Button variant="transparent">Sobre</Button>
+          <Button variant="transparent">Suporte</Button>
+          <Button variant="transparent">Anuncie seu Serviço</Button>
         </nav>
 
         {/* Direitos Autorais */}

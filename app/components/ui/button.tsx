@@ -24,7 +24,10 @@ const buttonVariants = cva(
         bord:
         "bg-white text-black border border-black hover:bg-gray-100",
         transparent:
+          "bg-transparent text-white border-transparent hover:text-teal-500",
+          transparentb:
           "bg-transparent text-white border-transparent hover:text-gray-300"
+
       },
       size: {
         default: "h-9 px-4 py-2",
